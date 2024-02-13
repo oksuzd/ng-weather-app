@@ -5,7 +5,7 @@ import {
   HttpEvent,
   HttpInterceptor
 } from '@angular/common/http';
-import { delay, finalize, Observable } from 'rxjs';
+import { finalize, Observable } from 'rxjs';
 import { LoaderService } from "./loader.service";
 
 @Injectable()
@@ -18,7 +18,6 @@ export class LoaderInterceptor implements HttpInterceptor {
     this.loaderService.setIsLoad(true);
     return next.handle(request)
       .pipe(
-        delay(1000),
         finalize(() => this.loaderService.setIsLoad(false))
       );
   }

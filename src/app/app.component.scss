@@ -1,9 +1,16 @@
-.loader_container {
-  position: fixed;
-  width: 100%;
-  z-index: 99;
+:host {
+  display: block;
+  height: 100%;
+
+  .loader_container {
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+  }
+
+  .main {
+    display: flex;
+    height: 100%;
+  }
 }
 
-.main {
-  display: flex;
-}

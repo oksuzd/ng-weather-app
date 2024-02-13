@@ -1,4 +1,4 @@
-<div *ngIf="loaderService.isLoad$ | async" class="loader_container">
+<div *ngIf="isLoad" class="loader_container">
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </div>
 <div class="main">

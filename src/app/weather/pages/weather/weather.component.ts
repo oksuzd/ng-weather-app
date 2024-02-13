@@ -3,7 +3,6 @@ import { catchError, Subject, switchMap, takeUntil, throwError } from "rxjs";
 import { WeatherDataService } from "../../services/weather-data.service";
 import { WeatherStoreService } from "../../services/weather-store.service";
 
-
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
