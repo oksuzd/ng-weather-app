@@ -6,10 +6,9 @@ import { DayWeatherComponent } from './components/day-weather/day-weather.compon
 import { CityListComponent } from './components/city-list/city-list.component';
 import { CitySearchComponent } from './components/city-search/city-search.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
-import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatButtonModule } from "@angular/material/button";
 
 
 @NgModule({
@@ -25,10 +24,9 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
     NgOptimizedImage,
     ReactiveFormsModule,
     FormsModule,
-    MatButtonModule,
     MatCardModule,
     MatProgressBarModule,
-    MatSnackBarModule,
+    MatButtonModule,
   ],
   exports: [
     WeatherComponent

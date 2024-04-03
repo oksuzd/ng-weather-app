@@ -1,7 +1,12 @@
 <h1 mat-dialog-title>Sorry!</h1>
 <div mat-dialog-content>
-  The application does not work in some regions due to the policies of third-party API services.
+  {{data.message}}
 </div>
-<div mat-dialog-content>
-  Your region: {{location.city + ', ' + location.country}}
+
+<div *ngIf="data.error === 'region'" mat-dialog-content>
+  Your region: {{data.location}}
 </div>
+
+<mat-dialog-actions *ngIf="data.error === 'extensions'" class="actions">
+  <button mat-button (click)="onOkClick()">Ok</button>
+</mat-dialog-actions>

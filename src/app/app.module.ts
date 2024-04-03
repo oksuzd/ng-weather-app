@@ -10,6 +10,7 @@ import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { ErrorInterceptor } from "./interceptors/error/error.interceptor";
 import { ErrorWindowComponent } from './interceptors/error/error-window/error-window.component';
 import { MatDialogModule } from "@angular/material/dialog";
+import { MatButtonModule } from "@angular/material/button";
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { MatDialogModule } from "@angular/material/dialog";
     HttpClientModule,
     WeatherModule,
     BrowserAnimationsModule,
+    MatButtonModule,
     MatProgressBarModule,
     MatDialogModule,
   ],
