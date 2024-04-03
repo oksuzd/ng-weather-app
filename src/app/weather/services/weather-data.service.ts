@@ -22,13 +22,14 @@ import {
 import { Helper } from "../helpers";
 
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class WeatherDataService {
 
   private readonly photoWidth = 544;
   private readonly photoHeight = 406;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   // example: https://api.ipgeolocation.io/ipgeo?apiKey=663e519677484f7389ade9e2f226c0eb
 
@@ -41,7 +42,8 @@ export class WeatherDataService {
       );
   }
 
-  // example: https://api.geoapify.com/v1/geocode/reverse?lat=52.51894887928074&lon=13.409808180753316&type=city&lang=en&limit=10&format=json&apiKey=YOUR_API_KEY
+  // example:
+  // https://api.geoapify.com/v1/geocode/reverse?lat=52.51894887928074&lon=13.409808180753316&type=city&lang=en&limit=10&format=json&apiKey=YOUR_API_KEY
 
   getGeoLocationByCoordinates(lat: string, lon: string): Observable<WeatherLocation> {
     const url = GEOAPIFY_URL + `reverse?lat=${lat}&lon=${lon}
@@ -53,7 +55,8 @@ export class WeatherDataService {
       );
   }
 
-  // example: https://api.geoapify.com/v1/geocode/autocomplete?text=buen&limit=5&type=city&format=json&apiKey=d062e33a6330458e8916f4d31c04d69c
+  // example:
+  // https://api.geoapify.com/v1/geocode/autocomplete?text=buen&limit=5&type=city&format=json&apiKey=d062e33a6330458e8916f4d31c04d69c
 
   getAutocompleteCityResults(text: string): Observable<WeatherLocation[]> {
     const url = GEOAPIFY_URL + `autocomplete?text=${text}&limit=5

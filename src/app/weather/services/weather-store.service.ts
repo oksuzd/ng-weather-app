@@ -8,7 +8,7 @@ export const initialLocation: WeatherLocation = {
   longitude: '',
 };
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class WeatherStoreService {
 
   private _location$: BehaviorSubject<WeatherLocation> = new BehaviorSubject<WeatherLocation>(initialLocation);

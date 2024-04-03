@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { catchError, filter, forkJoin, of, Subject, switchMap, takeUntil, throwError } from "rxjs";
 import { WeatherDataService } from "../../services/weather-data.service";
-import { WeatherCurrentData } from "../../models/weather-widget.models";
+import { WeatherCurrentData, WeatherLocation } from "../../models/weather-widget.models";
 import { WeatherStoreService } from "../../services/weather-store.service";
 
 @Component({
@@ -36,8 +36,8 @@ export class DayWeatherComponent implements OnInit, OnDestroy {
   setWeather() {
     this.weatherStoreService.location$
       .pipe(
-        filter((res) => !!res.city),
-        switchMap((res) => {
+        filter((res: WeatherLocation) => !!res.city),
+        switchMap((res: WeatherLocation) => {
           const cityQuery = `${res.city!} ${res.country!}`;
           return forkJoin([
             this.weatherServiceData.getCityPhotos(cityQuery),
@@ -45,8 +45,8 @@ export class DayWeatherComponent implements OnInit, OnDestroy {
             of(res.city!)
           ]);
         }),
+        catchError((err) => throwError(() => err)),
         takeUntil(this.notifier$),
-        catchError((err) => throwError(() => err))
       )
       .subscribe(([photos, weather, city]) => {
         this.cityPhotos = photos;
