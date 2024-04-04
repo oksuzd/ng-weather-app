@@ -3,7 +3,7 @@
     <div class="cities-list_title">
       <h3>Current City</h3>
     </div>
-    <div *ngIf="!currentLocation.id" class="cities-list_item cities-list_item-current item-placeholder ">Please, wait...</div>
+    <div *ngIf="!currentLocation.id" class="cities-list_item cities-list_item-current item-placeholder ">Finding your location...</div>
     <div *ngIf="currentLocation.id" class="cities-list_item cities-list_item-current"
          (click)="chooseLocation(currentLocation)"
     >
